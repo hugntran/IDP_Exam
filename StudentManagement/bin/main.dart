@@ -65,7 +65,7 @@ void writeFile(List<Map<String, dynamic>> data) {
   }
 }
 
-// 1️⃣ Hiển thị toàn bộ sinh viên
+// Hiển thị toàn bộ sinh viên
 void displayStudents() {
   List<Map<String, dynamic>> students = readFile();
   if (students.isEmpty) {
@@ -82,7 +82,7 @@ void displayStudents() {
   }
 }
 
-// 2️⃣ Thêm sinh viên mới
+// Thêm sinh viên mới
 void addStudent() {
   List<Map<String, dynamic>> students = readFile();
 
@@ -106,10 +106,10 @@ void addStudent() {
 
   students.add({"id": id, "name": name, "subjects": subjects});
   writeFile(students);
-  print("✅ Đã thêm sinh viên thành công!");
+  print("Đã thêm sinh viên thành công!");
 }
 
-// 3️⃣ Sửa thông tin sinh viên
+// Sửa thông tin sinh viên
 void editStudent() {
   List<Map<String, dynamic>> students = readFile();
 
@@ -118,7 +118,7 @@ void editStudent() {
 
   var student = students.firstWhere((s) => s['id'] == id, orElse: () => {});
   if (student.isEmpty) {
-    print("❌ Không tìm thấy sinh viên!");
+    print("Không tìm thấy sinh viên!");
     return;
   }
 
@@ -152,7 +152,7 @@ void editStudent() {
                 (s) => s['name'] == subjectName,
             orElse: () => {});
         if (subject.isEmpty) {
-          print("❌ Không tìm thấy môn học!");
+          print("Không tìm thấy môn học!");
         } else {
           stdout.write("Nhập điểm mới: ");
           subject['score'] = double.parse(stdin.readLineSync()!);
@@ -165,7 +165,7 @@ void editStudent() {
         break;
       case "4":
         writeFile(students);
-        print("✅ Đã cập nhật thông tin sinh viên!");
+        print("Đã cập nhật thông tin sinh viên!");
         return;
       default:
         print("Lựa chọn không hợp lệ!");
@@ -173,7 +173,7 @@ void editStudent() {
   }
 }
 
-// 4️⃣ Tìm kiếm sinh viên theo Tên hoặc ID
+// Tìm kiếm sinh viên theo Tên hoặc ID
 void searchStudent() {
   List<Map<String, dynamic>> students = readFile();
 
@@ -184,7 +184,7 @@ void searchStudent() {
   s['id'].toString() == query || s['name'].toLowerCase().contains(query.toLowerCase()));
 
   if (results.isEmpty) {
-    print("❌ Không tìm thấy sinh viên!");
+    print("Không tìm thấy sinh viên!");
   } else {
     print("\n----- Kết Quả Tìm Kiếm -----");
     for (var student in results) {
